@@ -11,8 +11,8 @@ public class SimpleHttpServerLauncher {
     private HttpServer server;
 
     public void initial() throws IOException{
-        HttpServer.create(new InetSocketAddress("localhost",8080), 0);
-        server.createContext("/app", handler);
+        server = HttpServer.create(new InetSocketAddress("localhost",8080), 0);
+        server.createContext("/app/texts", handler);
         server.start();
     }
 
