@@ -9,6 +9,7 @@ public class DeleteWithKeyRequestHandler implements RequestHandler {
     @Override
     public void execute(HttpExchange exchange, Map<String, String> texts) {
         texts.remove(getKeyFromURI(exchange));
+        //todo process situation when no key was found
         sendResponse(exchange,200);
         exchange.close();
     }
