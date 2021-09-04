@@ -1,11 +1,12 @@
 package ua.training.handler.impl;
 
 import com.sun.net.httpserver.HttpExchange;
+import ua.training.StatusCodesConstants;
 import ua.training.handler.RequestHandler;
 
 import java.util.Map;
 
-public class GetRequestHandler implements RequestHandler {
+public class GetRequestHandler implements RequestHandler, StatusCodesConstants {
     @Override
     public void execute(HttpExchange exchange, Map<String,String> texts) {
         StringBuilder sb = new StringBuilder();
@@ -16,7 +17,7 @@ public class GetRequestHandler implements RequestHandler {
             sb.append("\n");
         }
         String response = sb.toString();
-        sendResponse(exchange,response,200);
+        sendResponse(exchange,response,SUCCESFUL);
         exchange.close();
     }
 }
